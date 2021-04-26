@@ -1,0 +1,24 @@
+Diff b/w Node JS and Browser JS
+
+Full user-level system access:
+
+The browser Javascript is sandboxed for safety,
+node.js has full access to the system like any other native application.
+
+
+Global instead of Window:
+
+A lot of the APIs of the browser are missing like anything related to DOM and CSS, Performance, Document, APIs related to window. So for logic’s sake, the global object was renamed to global, since it does not refer to a window and has no window like properties.
+
+The Async IO threadpool:
+Browsers do have multiple threads to support the execution of javascript but in node.js the threadpool is used for super fast IO. When you use native modules they can tap into the threadpool, usually to do things like read from disk or send/receive data over the network in the background without wasting precious main thread CPU cycles that are reserved to your javascript code. This means that as long as you use the async versions of IO operation methods, the IO is basically zero cost for the javascript thread because the load is handled by another thread in the background. 
+
+CommonJS Module System:
+use require() in Node.js and import in the browser.
+
+Release Cycle:
+Since the development of JavaScript is moving very fast, browsers often lag behind the implementation of new features of JavaScript, so you need to use an older version of JavaScript in the Browser, but this does not apply to Node.js, you can use it all modern ES6-7-8-9 JavaScript if your version of Node.js supports it.
+
+
+Reference:
+https://medium.com/swlh/what-is-node-js-and-how-does-it-differ-from-a-browser-ddebef00cbd9#:~:text=Unlike%20the%20browser%20where%20Javascript,can%20execute%20software%20and%20more.

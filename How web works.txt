@@ -1,0 +1,12 @@
+First, you open your Web browser and type a URL. When you do this, your computer sends an electronic request over your Internet connection to your Internet service provider (ISP). The ISP routes the request to a server further up the chain on the Internet. Eventually, the request will hit a domain name server (DNS).
+
+This server will look for a match for the domain name you've typed in (such as www.howstuffworks.com). If it finds a match, it will direct your request to the proper server's IP address. If it doesn't find a match, it will send the request further up the chain to a server that has more information.
+
+The request will eventually come to our Web server. Our server will respond by sending the requested file in a series of packets. Packets are parts of a file that range between 1,000 and 1,500 bytes. Packets have headers and footers that tell computers what's in the packet and how the information fits with other packets to create an entire file. Each packet travels back up the network and down to your computer. Packets don't necessarily all take the same path -- they'll generally travel the path of least resistance.
+
+That's an important feature. Because packets can travel multiple paths to get to their destination, it's possible for information to route around congested areas on the Internet. In fact, as long as some connections remain, entire sections of the Internet could go down and information could still travel from one section to another -- though it might take longer than normal.
+
+When the packets get to you, your device arranges them according to the rules of the protocols. It's kind of like putting together a jigsaw puzzle. The end result is that you see this article.
+
+Reference:
+https://computer.howstuffworks.com/internet/basics/internet.htm#:~:text=First%2C%20you%20open%20your%20Web,Internet%20service%20provider%20(ISP).&text=This%20server%20will%20look%20for,www.howstuffworks.com).

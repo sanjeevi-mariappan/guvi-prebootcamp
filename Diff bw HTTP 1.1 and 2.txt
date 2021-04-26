@@ -1,0 +1,60 @@
+Difference between HTTP 1.1 and HTTP 2
+
+   HTTP is a protocol that works on client server model, defines a set of rules that governs data transfer between two computers. HTTP 1.1 and HTTP 2 are two major upgrades to the protocol. The pros and cons are discussed here.
+   
+   Main goals of HTTP/2 are
+   1.Protocol negotiation mechanism — protocol electing, eg. HTTP/1.1, HTTP/2 or other.
+   2.High-level compatibility with HTTP/1.1 — methods, status codes, URIs and header fields.
+   3.Page load speed improvements trough
+   4.Compression of request headers, to reduce overhead.
+   5.Binary protocol
+   6.HTTP/2 Server Push, Push request proactively into client caches instead of waiting for a new request for each resource.
+   7.Request multiplexing over a single TCP connection
+   8.Request pipelining
+   9.HOL blocking (head-of-line) — Package blocking
+   
+   Protocol Negotiation Mechanism
+   
+   If a client has no knowledge about a server's support for HTTP/2.0, it starts with HTTP/1.1 and attempt an upgrade to HTTP/2.0 as follows:
+
+     GET /default.htm HTTP/1.1
+     Host: server.example.com
+     Connection: Upgrade
+     Upgrade: HTTP/2.0
+          
+    If the server does not support the new protocol, it will simply respond to the client using HTTP/1.1:
+
+     HTTP/1.1 200 OK
+     Content-length: 243
+     Content-type: text/html
+     ...
+          
+    If the server switches to the new protocol, it will signal so via a 101 response. The server switches to HTTP/2.0 immediately after the empty line which terminates the 101 response [I-D.ietf-httpbis-p2-semantics].
+
+     HTTP/1.1 101 Switching Protocols
+     Connection: Upgrade
+     Upgrade: HTTP/2.0
+
+     [ HTTP/2.0 frame ] 
+	 
+	Request multiplexing:
+	
+    HTTP/2 can send multiple requests for data in parallel over a single TCP connection. This is the most advanced feature of the HTTP/2 protocol because it allows you to download web files asynchronously from one server.
+	
+	Stateful Header Compression:
+	
+    HTTP/2 compress a large number of redundant header frames. It uses the HPACK specification as a simple and secure approach to header compression. Both client and server maintain a list of headers used in previous client-server requests.
+	
+	Binary protocol:
+	
+    HTTP1.x used to process text commands to complete request-response cycles. HTTP/2 will use binary commands (in 1s and 0s) to execute the same tasks.
+	
+	HTTP/2 Server Push:
+	
+    This capability allows the server to send additional cacheable information to the client that isn’t requested but is anticipated in future requests. 
+	
+	
+	
+	
+	Reference:
+	https://medium.com/swlh/a-beginners-guide-to-http-2-and-its-importance-700f619bbfe7

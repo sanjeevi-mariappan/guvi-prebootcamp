@@ -1,0 +1,35 @@
+HTTP Version History
+
+HTTP/0.9 — The One-line Protocol
+Initial version of HTTP — a simple client-server, request-response, telenet-friendly protocol
+Request nature: single-line (method + path for requested document)
+Methods supported: GET only
+Response type: hypertext only
+Connection nature: terminated immediately after the response
+No HTTP headers (cannot transfer other content type files), No status/error codes, No URLs, No versioning
+
+HTTP/1.0 — Building extensibility
+Browser-friendly protocol
+Provided header fields including rich metadata about both request and response (HTTP version number, status code, content type)
+Response: not limited to hypertext (Content-Type header provided ability to transmit files other than plain HTML files — e.g. scripts, stylesheets, media)
+Methods supported: GET , HEAD , POST
+Connection nature: terminated immediately after the response
+
+HTTP/1.1 — The standardized protocol
+This is the HTTP version currently in common use.
+Introduced critical performance optimizations and feature enhancements — persistent and pipelined connections, chunked transfers, compression/decompression, content negotiations, virtual hosting (a server with a single IP Address hosting multiple domains), faster response and great bandwidth savings by adding cache support.
+Methods supported: GET , HEAD , POST , PUT , DELETE , TRACE , OPTIONS
+Connection nature: long-lived
+
+
+HTTP 2 has been discussed breifly in the previous Assignment
+
+
+HTTPS
+Hyper Text Transfer Protocol Secure (HTTPS) is the secure version of HTTP. It uses SSL/TLS for secure encrypted communications.
+Originally developed by Netscape in mid-1990s, SSL (Secure Socket Layer) is a cryptographic protocol enhancement to HTTP, which defines how client and server should communicate with each other securely. TLS (Transport Layer Security) is the successor of SSL.
+An HTTPS connection can protect the data transfer from the man-in-the-middle attacks and common security threats by providing bidirectional encryption for communications between a client and server.
+
+
+Reference:
+https://medium.com/platform-engineer/evolution-of-http-69cfe6531ba0
