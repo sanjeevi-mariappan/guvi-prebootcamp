@@ -1,0 +1,57 @@
+Copy By value a composite Datatype
+ we need to create a new object and replicate the structure of the existing one by iterating over its properties and copying them on the primitive level.
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = {}; // the new empty object
+
+// let's copy all user properties into it
+for (let key in user) {
+  clone[key] = user[key];
+}
+
+// now clone is a fully independent object with the same content
+clone.name = "Pete"; // changed the data in it
+
+alert( user.name ); // still John in the original object
+Also we can use the method Object.assign for that.
+
+The syntax is:
+
+Object.assign(dest, [src1, src2, src3...])
+The first argument dest is a target object.
+Further arguments src1, ..., srcN (can be as many as needed) are source objects.
+It copies the properties of all source objects src1, ..., srcN into the target dest. In other words, properties of all arguments starting from the second are copied into the first object.
+The call returns dest.
+For instance, we can use it to merge several objects into one:
+
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copies all properties from permissions1 and permissions2 into user
+Object.assign(user, permissions1, permissions2);
+
+// now user = { name: "John", canView: true, canEdit: true }
+If the copied property name already exists, it gets overwritten:
+
+let user = { name: "John" };
+
+Object.assign(user, { name: "Pete" });
+
+alert(user.name); // now user = { name: "Pete" }
+We also can use Object.assign to replace for..in loop for simple cloning:
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = Object.assign({}, user);
+It copies all properties of user into the empty object and returns it.
+
+There are also other methods of cloning an object, e.g. using the spread syntax clone = {...user}
