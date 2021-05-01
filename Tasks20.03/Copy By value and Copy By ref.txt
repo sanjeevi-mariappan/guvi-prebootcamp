@@ -1,0 +1,20 @@
+Copy  by Value and Copy by reference
+  
+  When Copying by value, actual value will be copied. Any change to copied value will not affect the original value. Primitive object types are copied by value.
+  For eg:
+  var a=10;
+  var b=a;
+  console.log(a);//10
+  console.log(b);//10
+  a=25;
+  console.log(a);//25
+  console.log(b);//10
+  
+  When copying by reference, reference to the original value will be assigned to the copied object. Complex datatypes are copied by reference. Any change we do to the copied object will affect the original object.
+  var obj={a:10};
+  var obj1=obj;
+  console.log(obj.a);//10
+  console.log(obj1.a);//10;
+  obj.a=25;
+  console.log(obj.a);//25
+  console.log(obj1.a);//25
